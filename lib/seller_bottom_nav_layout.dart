@@ -1,9 +1,8 @@
 import 'package:animations/animations.dart';
-import 'package:bus_booking_app/sadhanaCart/seller/select_sell_type_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sadhanacart/select_sell_type.dart';
 
-import 'my_products_screen.dart';
 
 
 class BottomNavBarScreen extends StatefulWidget {
@@ -148,6 +147,16 @@ class ChatScreen extends StatelessWidget {
 
 
 class AccountScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Manage your account here.', style: TextStyle(fontSize: 18)),
+    );
+  }
+}
+
+
+class MyProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(

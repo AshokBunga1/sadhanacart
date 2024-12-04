@@ -1,7 +1,7 @@
-import 'package:bus_booking_app/sadhanaCart/seller/sell_clothings_upload_screen.dart';
-import 'package:bus_booking_app/sadhanaCart/seller/sell_electronics_upload_screen.dart';
-import 'package:bus_booking_app/sadhanaCart/seller/sell_footwear_upload_screen.dart';
+
 import 'package:flutter/material.dart';
+
+import 'clothings_upload_screen.dart';
 
 class SellScreen extends StatefulWidget {
   @override
@@ -147,6 +147,24 @@ class _SellScreenState extends State<SellScreen> with SingleTickerProviderStateM
 
 
 class FurniturePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Manage your account here.', style: TextStyle(fontSize: 18)),
+    );
+  }
+}
+
+class ElectronicsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Manage your account here.', style: TextStyle(fontSize: 18)),
+    );
+  }
+}
+
+class FootwearPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(

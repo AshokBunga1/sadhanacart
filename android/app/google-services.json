@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "634788140788",
+    "project_id": "sadhanacart-2d590",
+    "storage_bucket": "sadhanacart-2d590.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634788140788:android:3da97f96b3d888e6bbb0a1",
+        "android_client_info": {
+          "package_name": "com.example.sadhanacart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNCv40C-owLa3UYgZ9Y8u0n4bLfgyGDqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -23,11 +23,20 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
   final ImagePicker _picker = ImagePicker();
 
   User? _user;
+  bool _isVisible = false;
+
 
   @override
   void initState() {
     super.initState();
     _user = FirebaseAuth.instance.currentUser; // Get the current user
+
+    // Trigger fade-in after a delay
+    Future.delayed(Duration(milliseconds: 500),(){
+      setState(() {
+        _isVisible = true;
+      });
+    });
   }
 
   void _addColor() {
@@ -68,13 +77,16 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
     }
   }
 
+
+
   Future<void> _uploadMedia() async {
     for (int i = 0; i < _colors.length; i++) {
       // Upload images for this color
       List<String> imageUrls = [];
       for (var file in _colors[i]['images']) {
         String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-        Reference ref = FirebaseStorage.instance.ref().child('items/images/$fileName');
+        Reference ref =
+            FirebaseStorage.instance.ref().child('items/images/$fileName');
         await ref.putFile(file);
         String url = await ref.getDownloadURL();
         imageUrls.add(url);
@@ -85,7 +97,8 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
       List<String> videoUrls = [];
       for (var file in _colors[i]['videos']) {
         String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-        Reference ref = FirebaseStorage.instance.ref().child('items/videos/$fileName');
+        Reference ref =
+            FirebaseStorage.instance.ref().child('items/videos/$fileName');
         await ref.putFile(file);
         String url = await ref.getDownloadURL();
         videoUrls.add(url);
@@ -93,7 +106,6 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
       _colors[i]['videos'] = videoUrls;
     }
   }
-
 
   Future<void> _uploadItem() async {
     if (_formKey.currentState!.validate() && _colors.isNotEmpty) {
@@ -115,7 +127,8 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
         await FirebaseFirestore.instance
             .collection('seller')
             .doc(_user!.uid) // Using the seller's UID as document ID
-            .collection('Clothings') // Creating a 'Clothings' subcollection for the seller
+            .collection(
+                'Clothings') // Creating a 'Clothings' subcollection for the seller
             .add({
           'name': _name,
           'category': _category,
@@ -146,11 +159,10 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Upload Item')),
+      appBar: AppBar(title: Text('Upload Item',style: TextStyle(color: Colors.white),),backgroundColor: Color(0x3ff4a89f7),),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -161,31 +173,43 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
               children: [
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Item Name'),
-                  validator: (value) => value!.isEmpty ? 'Please enter the item name' : null,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please enter the item name' : null,
                   onSaved: (value) => _name = value!,
                 ),
+                SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Category'),
-                  validator: (value) => value!.isEmpty ? 'Please enter the category' : null,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please enter the category' : null,
                   onSaved: (value) => _category = value!,
                 ),
+                SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Shop Name'),
-                  validator: (value) => value!.isEmpty ? 'Please enter the Shop Name' : null,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please enter the Shop Name' : null,
                   onSaved: (value) => _shopName = value!,
                 ),
+                SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Brand Name'),
-                  validator: (value) => value!.isEmpty ? 'Please enter the Brand Name' : null,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please enter the Brand Name' : null,
                   onSaved: (value) => _brandName = value!,
                 ),
+                SizedBox(height: 10),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Description'),
-                  validator: (value) => value!.isEmpty ? 'Please enter the description' : null,
+                  decoration: InputDecoration(
+                      labelText: 'Description', alignLabelWithHint: true),
+                  maxLines: 5,
+                  validator: (value) =>
+                      value!.isEmpty ? 'Please enter the description' : null,
                   onSaved: (value) => _description = value!,
                 ),
                 SizedBox(height: 16),
                 Text('Colors and Prices'),
+                SizedBox(height: 5),
                 ..._colors.asMap().entries.map((entry) {
                   int colorIndex = entry.key;
                   Map<String, dynamic> color = entry.value;
@@ -197,100 +221,213 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
                         children: [
                           Expanded(
                             child: TextFormField(
-                              decoration: InputDecoration(labelText: 'Color'),
-                              onChanged: (value) => _colors[colorIndex]['color'] = value,
+                              decoration: InputDecoration(
+                                  labelText: 'Color',
+                                  suffixIcon: IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _colors.removeAt(colorIndex);
+                                        });
+                                      },
+                                      icon: Icon(
+                                        Icons.delete_sweep,
+                                        color: Colors.redAccent,
+                                      ))),
+                              onChanged: (value) =>
+                                  _colors[colorIndex]['color'] = value,
                             ),
                           ),
-                          IconButton(
+                          /*IconButton(
                             icon: Icon(Icons.delete, color: Colors.red),
                             onPressed: () {
                               setState(() {
                                 _colors.removeAt(colorIndex);
                               });
                             },
-                          ),
+                          ),*/
                         ],
                       ),
+                      SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(labelText: 'Price'),
                         keyboardType: TextInputType.number,
-                        onChanged: (value) => _colors[colorIndex]['price'] = double.tryParse(value) ?? 0.0,
+                        onChanged: (value) => _colors[colorIndex]['price'] =
+                            double.tryParse(value) ?? 0.0,
                       ),
+                      SizedBox(height: 5),
                       Text('Sizes and Quantities'),
+                      SizedBox(height: 5),
                       ...color['sizes'].asMap().entries.map((sizeEntry) {
                         int sizeIndex = sizeEntry.key;
                         Map<String, dynamic> size = sizeEntry.value;
 
                         return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
-                              child: TextFormField(
-                                decoration: InputDecoration(labelText: 'Size'),
-                                onChanged: (value) => _colors[colorIndex]['sizes'][sizeIndex]['size'] = value,
+                              child: Column(
+                                children: [
+                                  TextFormField(
+                                    decoration:
+                                        InputDecoration(labelText: 'Size'),
+                                    onChanged: (value) => _colors[colorIndex]
+                                        ['sizes'][sizeIndex]['size'] = value,
+                                  ),
+                                  SizedBox(height: 7),
+                                  // Vertical spacing within the column
+                                ],
                               ),
                             ),
+                            SizedBox(width: 5),
+                            // Horizontal spacing between the two Expanded widgets
                             Expanded(
-                              child: TextFormField(
-                                decoration: InputDecoration(labelText: 'Quantity'),
-                                keyboardType: TextInputType.number,
-                                onChanged: (value) => _colors[colorIndex]['sizes'][sizeIndex]['quantity'] = int.tryParse(value) ?? 0,
+                              child: Column(
+                                children: [
+                                  TextFormField(
+                                    decoration:
+                                        InputDecoration(labelText: 'Quantity'),
+                                    keyboardType: TextInputType.number,
+                                    onChanged: (value) => _colors[colorIndex]
+                                            ['sizes'][sizeIndex]['quantity'] =
+                                        int.tryParse(value) ?? 0,
+                                  ),
+                                  SizedBox(height: 5),
+                                  // Vertical spacing within the column (optional)
+                                ],
                               ),
                             ),
                           ],
                         );
                       }).toList(),
-                      ElevatedButton(
-                        onPressed: () => _addSize(colorIndex),
-                        child: Text('Add Size'),
+                      SizedBox(height: 5),
+                      Row(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () => _addSize(colorIndex),
+                            child: Text('Add Size'),
+                          ),
+                          SizedBox(width: 10),
+                        ],
                       ),
                       SizedBox(height: 16),
+
+                      /*IconButton(onPressed: (){}, icon: Icon(Icons.upload_rounded)),
                       ElevatedButton(
                         onPressed: () => _pickImages(colorIndex),
                         child: Text('Pick Images for ${color['color']}'),
                       ),
-                      SizedBox(height: 16),
-                      // Display the selected images for this color
-                      _colors[colorIndex]['images'].isNotEmpty
-                          ? Wrap(
-                        spacing: 8.0,
-                        children: _colors[colorIndex]['images']
-                            .map<Widget>((file) => Image.file(file, width: 100, height: 100, fit: BoxFit.cover))
-                            .toList(),
-                      )
-                          : Container(),
-                      SizedBox(height: 16),
-                      // Display the selected videos for this color
-                      _colors[colorIndex]['videos'].isNotEmpty
-                          ? Wrap(
-                        spacing: 8.0,
-                        children: _colors[colorIndex]['videos']
-                            .map<Widget>((file) {
-                          return GestureDetector(
-                            onTap: () {
-                              // You can add logic to play video here or navigate to a new screen to play the video
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => VideoPlayerScreen(videoFile: file),
+                      ElevatedButton.icon(
+                        onPressed: () => _pickImages(colorIndex),
+                        icon: Icon(Icons.file_upload),
+                        // The icon you want to display
+                        label: Text('Pick Images for ${color['color']}'),
+                        // The label text
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 12), // Adjust padding
+                        ),
+                      ),*/
+                      Row(
+                        children: [
+                          ElevatedButton(
+                              onPressed: () => _pickImages(colorIndex),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0x3ffffcb24),
+                                  foregroundColor: Colors.black),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/image.png',
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text('Pick images for ${color['color']}'),
+                                ],
+                              )),
+                          SizedBox(width: 15),
+                          SizedBox(height: 10),
+                          // Display the selected images for this color
+                          _colors[colorIndex]['images'].isNotEmpty
+                              ? Wrap(
+                                  spacing: 8.0,
+                                  children: _colors[colorIndex]['images']
+                                      .map<Widget>((file) => Image.file(file,
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.cover))
+                                      .toList(),
+                                )
+                              : Container(),
+                          SizedBox(height: 10),
+                          // Display the selected videos for this color
+                          _colors[colorIndex]['videos'].isNotEmpty
+                              ? Wrap(
+                                  spacing: 8.0,
+                                  children: _colors[colorIndex]['videos']
+                                      .map<Widget>((file) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        // You can add logic to play video here or navigate to a new screen to play the video
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                VideoPlayerScreen(
+                                                    videoFile: file),
+                                          ),
+                                        );
+                                      },
+                                      child: Container(
+                                        width: 100,
+                                        height: 100,
+                                        color: Colors.grey[300],
+                                        child: Icon(Icons.play_arrow,
+                                            size: 50, color: Colors.white),
+                                      ),
+                                    );
+                                  }).toList(),
+                                )
+                              : Container(),
+                          SizedBox(height: 16),
+                          ElevatedButton(
+                            onPressed: () => _pickVideos(colorIndex),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(
+                                  0x3ffffcb24,
                                 ),
-                              );
-                            },
-                            child: Container(
-                              width: 100,
-                              height: 100,
-                              color: Colors.grey[300],
-                              child: Icon(Icons.play_arrow, size: 50, color: Colors.white),
+                                foregroundColor: Colors.black),
+                            /*style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12)),*/
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/upload.png',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                SizedBox(height: 8),
+                                Text('Pick videos for ${color['color']}'),
+                              ],
                             ),
-                          );
-                        })
-                            .toList(),
-                      )
-                          : Container(),
-                      SizedBox(height: 16),
+                          ),
+                        ],
+                      ),
+
+                      /*ElevatedButton.icon(
+                        onPressed: () => _pickVideos(colorIndex),
+                        icon: Icon(Icons.video_camera_back),
+                        label: Text('Pick videos for ${color['color']}'),
+                        style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12)),
+                      ),
                       ElevatedButton(
                         onPressed: () => _pickVideos(colorIndex),
                         child: Text('Pick Videos for ${color['color']}'),
-                      ),
+                      ),*/
+
                       SizedBox(height: 16),
                     ],
                   );
@@ -300,9 +437,19 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
                   child: Text('Add Color'),
                 ),
                 SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: _uploadItem,
-                  child: Text('Upload Item'),
+                AnimatedOpacity(
+                  duration: Duration(milliseconds: 600),
+                  opacity: _isVisible? 1.0 : 0.0,
+                  curve: Curves.easeInOut,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0x3ff08cb0b),
+                        minimumSize: Size(600, 50),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                    onPressed: _uploadItem,
+                    child: Text('Upload Item',style: TextStyle(fontSize: 16),),
+                  ),
                 ),
               ],
             ),
@@ -316,6 +463,7 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
 // VideoPlayerScreen to play the selected video
 class VideoPlayerScreen extends StatelessWidget {
   final File videoFile;
+
   VideoPlayerScreen({required this.videoFile});
 
   @override
@@ -333,6 +481,7 @@ class VideoPlayerScreen extends StatelessWidget {
 
 class VideoPlayerWidget extends StatefulWidget {
   final File videoFile;
+
   VideoPlayerWidget({required this.videoFile});
 
   @override
@@ -356,9 +505,9 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   Widget build(BuildContext context) {
     return _controller.value.isInitialized
         ? AspectRatio(
-      aspectRatio: _controller.value.aspectRatio,
-      child: VideoPlayer(_controller),
-    )
+            aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+          )
         : Center(child: CircularProgressIndicator());
   }
 

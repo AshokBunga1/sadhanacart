@@ -130,6 +130,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sadhanacart/firebase_options.dart';
+import 'package:sadhanacart/select_sell_type.dart';
+import 'package:sadhanacart/seller_bottom_nav_layout.dart';
+import 'clothings_upload_screen.dart';
 import 'customer_onbording_screens.dart';
 import 'customer_sign_up.dart';
 import 'customer_signin.dart';
@@ -149,9 +152,43 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Welcome Screen',
       theme: ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0x3ff4a89f7),
+            foregroundColor: Colors.white,
+            elevation: 2,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: Colors.grey[100],
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(
+              color: Colors.blue,
+              width: 1,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(
+              color: Colors.blue,
+              width: 1,
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(
+              color: Colors.blue,
+              width: 1,
+            ),
+          ),
+          labelStyle: TextStyle(color: Colors.blue)
+        ),
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: SellScreen(),
     );
   }
 }

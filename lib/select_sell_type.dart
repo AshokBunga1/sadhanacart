@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'clothings_upload_screen.dart';
+import 'furniture_upload_screen.dart';
 
 class SellScreen extends StatefulWidget {
   @override
@@ -146,14 +147,7 @@ class _SellScreenState extends State<SellScreen> with SingleTickerProviderStateM
 }
 
 
-class FurniturePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Manage your account here.', style: TextStyle(fontSize: 18)),
-    );
-  }
-}
+
 
 class ElectronicsPage extends StatelessWidget {
   @override

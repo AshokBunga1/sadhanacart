@@ -8,7 +8,7 @@ class BabyScreen extends StatelessWidget {
     List<String> imagePaths = [
       'assets/babaycare_sadhana_clothings_1.png', // Image 1
       'assets/babycare_sadhana_clothings_2.png', // Image 2
-      'assets/babycare_sadhana_clothings_3.avif', // Image 3
+      'assets/babycare_sadhana_clothings_2.png', // Image 3
     ];
 
     // List of corresponding texts for each image

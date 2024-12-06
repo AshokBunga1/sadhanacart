@@ -115,7 +115,6 @@ flutter:
      - assets/wrogn_white_shirt_sadhana_4.jpeg
      - assets/mobile_image_sadhana.jpeg
      - assets/mobile_image_sadhana_2.png
-     - assets/mobile_image_sadhana_3.avif
      - assets/mobile_image_sadhana_4.jpeg
      - assets/electronics_sadhana_1.jpg
      - assets/electronics_sadhana_2.png
@@ -127,7 +126,8 @@ flutter:
      - assets/vegetables_sadhana_1.png
      - assets/babaycare_sadhana_clothings_1.png
      - assets/babycare_sadhana_clothings_2.png
-     - assets/babycare_sadhana_clothings_3.avif
+     - assets/image.png
+     - assets/upload.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

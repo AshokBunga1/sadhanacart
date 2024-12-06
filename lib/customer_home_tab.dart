@@ -413,7 +413,7 @@ class _HomeTabState extends State<HomeTab> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _buildCustomContainer(
-                            imagePath: 'assets/mobile_image_sadhana_3.avif',
+                            imagePath: 'assets/mobile_image_sadhana_2.png',
                             title: 'vivo',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',

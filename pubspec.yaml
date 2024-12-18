@@ -74,60 +74,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/google_log_off.png
-     - assets/black_desert.jpeg
-     - assets/onbording_1.1.gif
-     - assets/onbording_1.2.gif
-     - assets/onbording_1.3.gif
-     - assets/ecomerce_onbording_1.1.png
-     - assets/ecomerce_onbording_1.2.png
-     - assets/ecomerce_onbording_1.3.png
-     - assets/fashion_category_sadhana_1.jpg
-     - assets/fashion_category_sadhana.jpg
-     - assets/fashion_circular_sadhana.jpg
-     - assets/furniture_circular_sadhana.jpg
-     - assets/electronics_circular_sadhana.jpg
-     - assets/baby_circular_sadhana.png
-     - assets/cool_drinks.jpg
-     - assets/vegetables.jpg
-     - assets/fashion_offer_sadhana.png
-     - assets/furniture_offer_sadhana.png
-     - assets/kids_fashion_offer_sadhana.jpg
-     - assets/mobiles_offers_sadhana.jpg
-     - assets/wrogn_brand_image.jpeg
-     - assets/allen_solly_image.png
-     - assets/puma_image.png
-     - assets/levis_image.png
-     - assets/addidas.png
-     - assets/nike_image.png
-     - assets/men_fashion_sadhana.png
-     - assets/women_fashion_sadhana.jpeg
-     - assets/kids_fashion_sadhana.jpeg
-     - assets/jewellery_sadhana.jpeg
-     - assets/casmotics_sadhana.jpeg
-     - assets/chair_sadhana.png
-     - assets/bed_sadhana.png
-     - assets/dining_table_sadhana.jpg
-     - assets/wrogn_shirt_1.jpg
-     - assets/wrogn_shirt_sadhana_1.jpeg
-     - assets/wrogn_tshirt_sadhana_2.jpeg
-     - assets/wrogn_shirt_sadhana_3.jpeg
-     - assets/wrogn_white_shirt_sadhana_4.jpeg
-     - assets/mobile_image_sadhana.jpeg
-     - assets/mobile_image_sadhana_2.png
-     - assets/mobile_image_sadhana_4.jpeg
-     - assets/electronics_sadhana_1.jpg
-     - assets/electronics_sadhana_2.png
-     - assets/electronics_sadhana_3.png
-     - assets/electronics_sadhana_4.png
-     - assets/electronics_sadhana_5.png
-     - assets/vegetables_sadhana_3.png
-     - assets/vegetables_sadhana_2.png
-     - assets/vegetables_sadhana_1.png
-     - assets/babaycare_sadhana_clothings_1.png
-     - assets/babycare_sadhana_clothings_2.png
-     - assets/image.png
-     - assets/upload.png
+     - assets/images/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -143,7 +91,7 @@ flutter:
   fonts:
      - family: BebasNeue
        fonts:
-         - asset: font_family/BebasNeue-Regular.ttf
+         - asset: assets/fonts/BebasNeue-Regular.ttf
 #           style: italic
 #     - family: Trajan Pro
   #     fonts:

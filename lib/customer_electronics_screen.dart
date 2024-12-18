@@ -7,11 +7,11 @@ class ElectronicsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // List of different images for each index
     List<String> imagePaths = [
-      'assets/electronics_sadhana_1.jpg', // Image 1
-      'assets/electronics_sadhana_2.png', // Image 2
-      'assets/electronics_sadhana_3.png', // Image 3
-      'assets/electronics_sadhana_4.png', // Image 3
-      'assets/electronics_sadhana_5.png', // Image 3
+      'assets/images/electronics_sadhana_1.jpg', // Image 1
+      'assets/images/electronics_sadhana_2.png', // Image 2
+      'assets/images/electronics_sadhana_3.png', // Image 3
+      'assets/images/electronics_sadhana_4.png', // Image 3
+      'assets/images/electronics_sadhana_5.png', // Image 3
 
 
     ];

@@ -6,9 +6,9 @@ class VegetablesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // List of different images for each index
     List<String> imagePaths = [
-      'assets/vegetables_sadhana_3.png', // Image 1
-      'assets/vegetables_sadhana_2.png', // Image 2
-      'assets/vegetables_sadhana_1.png', // Image 3
+      'assets/images/vegetables_sadhana_3.png', // Image 1
+      'assets/images/vegetables_sadhana_2.png', // Image 2
+      'assets/images/vegetables_sadhana_1.png', // Image 3
 
 
 

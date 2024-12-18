@@ -6,9 +6,9 @@ class FurnitureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // List of different images for each index
     List<String> imagePaths = [
-      'assets/chair_sadhana.png', // Image 1
-      'assets/bed_sadhana.png', // Image 2
-      'assets/dining_table_sadhana.jpg', // Image 3
+      'assets/images/chair_sadhana.png', // Image 1
+      'assets/images/bed_sadhana.png', // Image 2
+      'assets/images/dining_table_sadhana.jpg', // Image 3
 
     ];
 

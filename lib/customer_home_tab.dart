@@ -72,12 +72,12 @@ class _HomeTabState extends State<HomeTab> {
                     children: List.generate(6, (index) {
                       // List of different images for each index
                       List<String> imagePaths = [
-                        'assets/fashion_circular_sadhana.jpg', // Image 1
-                        'assets/furniture_circular_sadhana.jpg', // Image 2
-                        'assets/electronics_circular_sadhana.jpg', // Image 3
-                        'assets/vegetables.jpg', // Image 4
-                        'assets/baby_circular_sadhana.png', // Image 5
-                        'assets/cool_drinks.jpg', // Image 6
+                        'assets/images/fashion_circular_sadhana.jpg', // Image 1
+                        'assets/images/furniture_circular_sadhana.jpg', // Image 2
+                        'assets/images/electronics_circular_sadhana.jpg', // Image 3
+                        'assets/images/vegetables.jpg', // Image 4
+                        'assets/images/baby_circular_sadhana.png', // Image 5
+                        'assets/images/cool_drinks.jpg', // Image 6
                       ];
 
                       // List of corresponding texts for each image
@@ -141,7 +141,7 @@ class _HomeTabState extends State<HomeTab> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(borderRadius),
                       child: Image.asset(
-                        'assets/kids_fashion_offer_sadhana.jpg',
+                        'assets/images/kids_fashion_offer_sadhana.jpg',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -152,7 +152,7 @@ class _HomeTabState extends State<HomeTab> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(borderRadius),
                       child: Image.asset(
-                        'assets/mobiles_offers_sadhana.jpg',
+                        'assets/images/mobiles_offers_sadhana.jpg',
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -220,12 +220,12 @@ class _HomeTabState extends State<HomeTab> {
                     children: List.generate(6, (index) {
                       // List of different images for each index
                       List<String> imagePaths = [
-                        'assets/wrogn_brand_image.jpeg', // Image 1
-                        'assets/allen_solly_image.png', // Image 2
-                        'assets/puma_image.png', // Image 3
-                        'assets/levis_image.png', // Image 4
-                        'assets/addidas.png', // Image 5
-                        'assets/nike_image.png', // Image 6
+                        'assets/images/wrogn_brand_image.jpeg', // Image 1
+                        'assets/images/allen_solly_image.png', // Image 2
+                        'assets/images/puma_image.png', // Image 3
+                        'assets/images/levis_image.png', // Image 4
+                        'assets/images/addidas.png', // Image 5
+                        'assets/images/nike_image.png', // Image 6
                       ];
 
                       // List of corresponding texts for each image
@@ -310,14 +310,14 @@ class _HomeTabState extends State<HomeTab> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _buildCustomContainer(
-                            imagePath: 'assets/wrogn_shirt_sadhana_1.jpeg',
+                            imagePath: 'assets/images/wrogn_shirt_sadhana_1.jpeg',
                             title: 'Wrogn',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',
                             iconText: '4.5',
                           ),
                           _buildCustomContainer(
-                            imagePath: 'assets/wrogn_tshirt_sadhana_2.jpeg',
+                            imagePath: 'assets/images/wrogn_tshirt_sadhana_2.jpeg',
                             title: 'Allen Solly',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',
@@ -332,14 +332,14 @@ class _HomeTabState extends State<HomeTab> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _buildCustomContainer(
-                            imagePath: 'assets/wrogn_shirt_sadhana_3.jpeg',
+                            imagePath: 'assets/images/wrogn_shirt_sadhana_3.jpeg',
                             title: 'Puma',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',
                             iconText: '4.8',
                           ),
                           _buildCustomContainer(
-                            imagePath: 'assets/wrogn_white_shirt_sadhana_4.jpeg',
+                            imagePath: 'assets/images/wrogn_white_shirt_sadhana_4.jpeg',
                             title: 'Levis',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',
@@ -391,14 +391,14 @@ class _HomeTabState extends State<HomeTab> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _buildCustomContainer(
-                            imagePath: 'assets/mobile_image_sadhana.jpeg',
+                            imagePath: 'assets/images/mobile_image_sadhana.jpeg',
                             title: 'iPhone',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',
                             iconText: '4.5',
                           ),
                           _buildCustomContainer(
-                            imagePath: 'assets/mobile_image_sadhana_2.png',
+                            imagePath: 'assets/images/mobile_image_sadhana_2.png',
                             title: 'vivo',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',
@@ -413,14 +413,14 @@ class _HomeTabState extends State<HomeTab> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _buildCustomContainer(
-                            imagePath: 'assets/mobile_image_sadhana_2.png',
+                            imagePath: 'assets/images/mobile_image_sadhana_2.png',
                             title: 'vivo',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',
                             iconText: '4.8',
                           ),
                           _buildCustomContainer(
-                            imagePath: 'assets/mobile_image_sadhana_4.jpeg',
+                            imagePath: 'assets/images/mobile_image_sadhana_4.jpeg',
                             title: 'vivo',
                             subText1: 'Subtext 1',
                             subText2: 'Subtext 2',
@@ -446,7 +446,7 @@ class _HomeTabState extends State<HomeTab> {
     required String iconText,
   }) {
     return Container(
-      width: 150, // Adjust width as needed
+      width: 200, // Adjust width as needed
       height: 200, // Adjust height as needed
       decoration: BoxDecoration(
         color: Colors.white,

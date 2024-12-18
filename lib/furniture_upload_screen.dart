@@ -8,12 +8,10 @@ import 'package:video_player/video_player.dart';
 
 class FurniturePage extends StatefulWidget {
   @override
-  _FurniturePageState createState() =>
-      _FurniturePageState();
+  _FurniturePageState createState() => _FurniturePageState();
 }
 
-class _FurniturePageState
-    extends State<FurniturePage> {
+class _FurniturePageState extends State<FurniturePage> {
   final _formKey = GlobalKey<FormState>();
   String _name = '';
   String _shopName = '';
@@ -57,7 +55,7 @@ class _FurniturePageState
     for (var file in _images) {
       String fileName = DateTime.now().millisecondsSinceEpoch.toString();
       Reference ref =
-      FirebaseStorage.instance.ref().child('furniture/images/$fileName');
+          FirebaseStorage.instance.ref().child('furniture/images/$fileName');
       await ref.putFile(file);
       String url = await ref.getDownloadURL();
       imageUrls.add(url);
@@ -125,7 +123,6 @@ class _FurniturePageState
       appBar: AppBar(
         title: Text(
           'Upload Furniture Item',
-          style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Color(0x3ff4a89f7),
       ),
@@ -140,61 +137,61 @@ class _FurniturePageState
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Item Name'),
                   validator: (value) =>
-                  value!.isEmpty ? 'Please enter the item name' : null,
+                      value!.isEmpty ? 'Please enter the item name' : null,
                   onSaved: (value) => _name = value!,
                 ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Category'),
                   validator: (value) =>
-                  value!.isEmpty ? 'Please enter the category' : null,
+                      value!.isEmpty ? 'Please enter the category' : null,
                   onSaved: (value) => _category = value!,
                 ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Shop Name'),
                   validator: (value) =>
-                  value!.isEmpty ? 'Please enter the shop name' : null,
+                      value!.isEmpty ? 'Please enter the shop name' : null,
                   onSaved: (value) => _shopName = value!,
                 ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Brand Name'),
                   validator: (value) =>
-                  value!.isEmpty ? 'Please enter the brand name' : null,
+                      value!.isEmpty ? 'Please enter the brand name' : null,
                   onSaved: (value) => _brandName = value!,
                 ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Material'),
                   validator: (value) =>
-                  value!.isEmpty ? 'Please enter the material' : null,
+                      value!.isEmpty ? 'Please enter the material' : null,
                   onSaved: (value) => _material = value!,
                 ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Dimensions'),
                   validator: (value) =>
-                  value!.isEmpty ? 'Please enter the dimensions' : null,
+                      value!.isEmpty ? 'Please enter the dimensions' : null,
                   onSaved: (value) => _dimensions = value!,
                 ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Weight'),
                   validator: (value) =>
-                  value!.isEmpty ? 'Please enter the weight' : null,
+                      value!.isEmpty ? 'Please enter the weight' : null,
                   onSaved: (value) => _weight = value!,
                 ),
-                SizedBox(height: 10),
-                CheckboxListTile(
-                  title: Text('Requires Assembly'),
-                  value: _requiresAssembly,
-                  onChanged: (value) {
-                    setState(() {
-                      _requiresAssembly = value!;
-                    });
-                  },
-                ),
+                // SizedBox(height: 10),
+                // CheckboxListTile(
+                //   title: Text('Requires Assembly'),
+                //   value: _requiresAssembly,
+                //   onChanged: (value) {
+                //     setState(() {
+                //       _requiresAssembly = value!;
+                //     });
+                //   },
+                // ),
                 SizedBox(height: 10),
                 TextFormField(
                   decoration: InputDecoration(
@@ -203,7 +200,7 @@ class _FurniturePageState
                   ),
                   maxLines: 5,
                   validator: (value) =>
-                  value!.isEmpty ? 'Please enter the description' : null,
+                      value!.isEmpty ? 'Please enter the description' : null,
                   onSaved: (value) => _description = value!,
                 ),
                 SizedBox(height: 16),
@@ -214,16 +211,16 @@ class _FurniturePageState
                 ),
                 _images.isNotEmpty
                     ? Wrap(
-                  spacing: 8.0,
-                  children: _images
-                      .map((file) => Image.file(
-                    file,
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
-                  ))
-                      .toList(),
-                )
+                        spacing: 8.0,
+                        children: _images
+                            .map((file) => Image.file(
+                                  file,
+                                  width: 100,
+                                  height: 100,
+                                  fit: BoxFit.cover,
+                                ))
+                            .toList(),
+                      )
                     : Container(),
                 SizedBox(height: 20),
                 AnimatedOpacity(
@@ -299,9 +296,9 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   Widget build(BuildContext context) {
     return _controller.value.isInitialized
         ? AspectRatio(
-      aspectRatio: _controller.value.aspectRatio,
-      child: VideoPlayer(_controller),
-    )
+            aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+          )
         : Center(child: CircularProgressIndicator());
   }
 

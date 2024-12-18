@@ -6,11 +6,11 @@ class FashionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // List of different images for each index
     List<String> imagePaths = [
-      'assets/men_fashion_sadhana.png', // Image 1
-      'assets/women_fashion_sadhana.jpeg', // Image 2
-      'assets/kids_fashion_sadhana.jpeg', // Image 3
-      'assets/jewellery_sadhana.jpeg', // Image 4
-      'assets/casmotics_sadhana.jpeg', // Image 5
+      'assets/images/men_fashion_sadhana.png', // Image 1
+      'assets/images/women_fashion_sadhana.jpeg', // Image 2
+      'assets/images/kids_fashion_sadhana.jpeg', // Image 3
+      'assets/images/jewellery_sadhana.jpeg', // Image 4
+      'assets/images/casmotics_sadhana.jpeg', // Image 5
     ];
 
     // List of corresponding texts for each image

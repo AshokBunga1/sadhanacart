@@ -80,12 +80,12 @@ class _CategoriesTabState extends State<CategoriesTab> {
                   ...List.generate(6, (index) {
                     // List of image paths and labels
                     List<String> imagePaths = [
-                      'assets/fashion_circular_sadhana.jpg',
-                      'assets/furniture_circular_sadhana.jpg',
-                      'assets/electronics_circular_sadhana.jpg',
-                      'assets/vegetables.jpg',
-                      'assets/baby_circular_sadhana.png',
-                      'assets/cool_drinks.jpg',
+                      'assets/images/fashion_circular_sadhana.jpg',
+                      'assets/images/furniture_circular_sadhana.jpg',
+                      'assets/images/electronics_circular_sadhana.jpg',
+                      'assets/images/vegetables.jpg',
+                      'assets/images/baby_circular_sadhana.png',
+                      'assets/images/cool_drinks.jpg',
                     ];
 
                     List<String> labels = [

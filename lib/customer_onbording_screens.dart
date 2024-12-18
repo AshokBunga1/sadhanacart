@@ -188,17 +188,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     {
       'title': 'Discover Products',
       'subtitle': 'Find the best products from top brands.',
-      'image': 'assets/ecomerce_onbording_1.1.png',
+      'image': 'assets/images/ecomerce_onbording_1.1.png',
     },
     {
       'title': 'Easy Checkout',
       'subtitle': 'Fast and secure payment options.',
-      'image': 'assets/ecomerce_onbording_1.2.png',
+      'image': 'assets/images/ecomerce_onbording_1.2.png',
     },
     {
       'title': 'Track Your Orders',
       'subtitle': 'Real-time order tracking at your fingertips.',
-      'image': 'assets/ecomerce_onbording_1.3.png',
+      'image': 'assets/images/ecomerce_onbording_1.3.png',
     },
   ];
 

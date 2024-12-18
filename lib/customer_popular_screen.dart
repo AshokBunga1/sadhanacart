@@ -10,12 +10,12 @@ class PopularScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // List of different images for each index
     List<String> imagePaths = [
-      'assets/wrogn_brand_image.jpeg', // Image 1
-      'assets/allen_solly_image.png', // Image 2
-      'assets/puma_image.png', // Image 3
-      'assets/levis_image.png', // Image 4
-      'assets/addidas.png', // Image 5
-      'assets/nike_image.png', // Image 6
+      'assets/images/wrogn_brand_image.jpeg', // Image 1
+      'assets/images/allen_solly_image.png', // Image 2
+      'assets/images/puma_image.png', // Image 3
+      'assets/images/levis_image.png', // Image 4
+      'assets/images/addidas.png', // Image 5
+      'assets/images/nike_image.png', // Image 6
     ];
 
     // List of corresponding texts for each image

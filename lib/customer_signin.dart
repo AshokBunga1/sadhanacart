@@ -164,7 +164,7 @@ class _CustomerSigninScreenState extends State<CustomerSigninScreen> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/black_desert.jpeg'),
+                image: AssetImage('assets/images/black_desert.jpeg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -375,7 +375,7 @@ class _CustomerSigninScreenState extends State<CustomerSigninScreen> {
                                 mainAxisSize: MainAxisSize.min,  // Ensure the row takes up only as much space as needed
                                 children: [
                                   Image.asset(
-                                    'assets/google_log_off.png', // Replace with your Google icon asset
+                                    'assets/images/google_log_off.png', // Replace with your Google icon asset
                                     height: 24,
                                     width: 24,
                                   ),

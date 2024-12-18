@@ -6,9 +6,9 @@ class BabyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // List of different images for each index
     List<String> imagePaths = [
-      'assets/babaycare_sadhana_clothings_1.png', // Image 1
-      'assets/babycare_sadhana_clothings_2.png', // Image 2
-      'assets/babycare_sadhana_clothings_2.png', // Image 3
+      'assets/images/babaycare_sadhana_clothings_1.png', // Image 1
+      'assets/images/babycare_sadhana_clothings_2.png', // Image 2
+      'assets/images/babycare_sadhana_clothings_2.png', // Image 3
     ];
 
     // List of corresponding texts for each image

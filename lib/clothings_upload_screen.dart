@@ -25,14 +25,13 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
   User? _user;
   bool _isVisible = false;
 
-
   @override
   void initState() {
     super.initState();
     _user = FirebaseAuth.instance.currentUser; // Get the current user
 
     // Trigger fade-in after a delay
-    Future.delayed(Duration(milliseconds: 500),(){
+    Future.delayed(Duration(milliseconds: 500), () {
       setState(() {
         _isVisible = true;
       });
@@ -76,8 +75,6 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
       });
     }
   }
-
-
 
   Future<void> _uploadMedia() async {
     for (int i = 0; i < _colors.length; i++) {
@@ -162,7 +159,12 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Upload Item',style: TextStyle(color: Colors.white),),backgroundColor: Color(0x3ff4a89f7),),
+      appBar: AppBar(
+        title: Text(
+          'Upload Item',
+        ),
+        backgroundColor: Color(0x3ff4a89f7),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -273,7 +275,7 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
                                     onChanged: (value) => _colors[colorIndex]
                                         ['sizes'][sizeIndex]['size'] = value,
                                   ),
-                                  SizedBox(height: 7),
+                                  SizedBox(height: 5),
                                   // Vertical spacing within the column
                                 ],
                               ),
@@ -337,7 +339,7 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
                               child: Row(
                                 children: [
                                   Image.asset(
-                                    'assets/image.png',
+                                    'assets/images/image.png',
                                     width: 50,
                                     height: 50,
                                   ),
@@ -403,7 +405,7 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
                             child: Row(
                               children: [
                                 Image.asset(
-                                  'assets/upload.png',
+                                  'assets/images/upload.png',
                                   width: 50,
                                   height: 50,
                                 ),
@@ -439,7 +441,7 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
                 SizedBox(height: 20),
                 AnimatedOpacity(
                   duration: Duration(milliseconds: 600),
-                  opacity: _isVisible? 1.0 : 0.0,
+                  opacity: _isVisible ? 1.0 : 0.0,
                   curve: Curves.easeInOut,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -448,7 +450,10 @@ class _UploadClothingItemsScreenState extends State<UploadClothingItemsScreen> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20))),
                     onPressed: _uploadItem,
-                    child: Text('Upload Item',style: TextStyle(fontSize: 16),),
+                    child: Text(
+                      'Upload Item',
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ),
                 ),
               ],

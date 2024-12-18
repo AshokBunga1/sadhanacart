@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 import 'clothings_upload_screen.dart';
+import 'eletronic_upload_page.dart';
+import 'footware_upload_screen.dart';
 import 'furniture_upload_screen.dart';
 
 class SellScreen extends StatefulWidget {
@@ -33,22 +35,22 @@ class _SellScreenState extends State<SellScreen> with SingleTickerProviderStateM
     // List of items with asset images, text labels, and their respective pages
     final List<Map<String, dynamic>> items = [
       {
-        'image': 'assets/sell_clothings_main_image.jpeg',
+        'image': 'assets/images/sell_clothings_main_image.jpg',
         'label': 'Clothings',
         'page': UploadClothingItemsScreen(), // Define your page class
       },
       {
-        'image': 'assets/sell_electronics_main_image.jpg',
+        'image': 'assets/images/sell_electronics_main_image.jpg',
         'label': 'Electronics',
         'page': ElectronicsPage(), // Define your page class
       },
       {
-        'image': 'assets/sell_furniture_main_image.jpeg',
+        'image': 'assets/images/sell_furniture_main_image.jpeg',
         'label': 'Furniture',
         'page': FurniturePage(), // Define your page class
       },
       {
-        'image': 'assets/sell_footwear_main_image_1.jpeg',
+        'image': 'assets/images/sell_footwear_main_image_1.jpeg',
         'label': 'Footwear',
         'page': FootwearPage(), // Define your page class
       },
@@ -142,27 +144,6 @@ class _SellScreenState extends State<SellScreen> with SingleTickerProviderStateM
           },
         ),
       ),
-    );
-  }
-}
-
-
-
-
-class ElectronicsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Manage your account here.', style: TextStyle(fontSize: 18)),
-    );
-  }
-}
-
-class FootwearPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Manage your account here.', style: TextStyle(fontSize: 18)),
     );
   }
 }

@@ -324,7 +324,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ScaleEffect(duration: Duration(milliseconds: 800)),
                   ],
                   child: Image.asset(
-                    'assets/logo.png', // Add your logo here
+                    'assets/images/logo.png', // Add your logo here
                     height: 120,
                   ),
                 ),
@@ -372,7 +372,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                 // E-commerce Illustration
                 Image.asset(
-                  'assets/ecommerce_illustration.png', // Replace with an illustration or image
+                  'assets/images/ecommerce_illustration.png', // Replace with an illustration or image
                   height: 250,
                 ).animate(
                   effects: [

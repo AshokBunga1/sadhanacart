@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/google_log_off.png', // Your logo asset here
+                  'assets/images/google_log_off.png', // Your logo asset here
                   height: 120,
                 ).animate().scale(duration: const Duration(milliseconds: 800)).fadeIn(),
 

@@ -242,11 +242,11 @@ class _ElectronicsPageState
                       ),
                       SizedBox(height: 5),
                       ElevatedButton(
-                        onPressed: () {},//=> _pickImages(index),
+                        onPressed: () => _pickImages(index),
                         child: Text('Pick Images'),
                       ),
                       ElevatedButton(
-                        onPressed: () {},//=> _pickVideos(index),
+                        onPressed: () => _pickVideos(index),
                         child: Text('Pick Videos'),
                       ),
                       SizedBox(height: 16),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:sadhanacart/firebase_options.dart';
 import 'package:sadhanacart/select_sell_type.dart';
 
-import 'customer_sign_up.dart';
 
 
 void main() async {

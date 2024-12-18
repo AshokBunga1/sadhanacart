@@ -308,12 +308,12 @@ class _FootwearPageState extends State<FootwearPage> {
                       Row(
                         children: [
                           ElevatedButton(
-                            onPressed: () {}, //=> _pickImages(colorIndex),
+                            onPressed: () => _pickImages(colorIndex),
                             child: Text('Pick Images'),
                           ),
                           SizedBox(width: 10),
                           ElevatedButton(
-                            onPressed: () {}, //=> _pickVideos(colorIndex),
+                            onPressed: () => _pickVideos(colorIndex),
                             child: Text('Pick Videos'),
                           ),
                         ],

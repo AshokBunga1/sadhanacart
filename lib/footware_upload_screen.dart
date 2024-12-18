@@ -301,26 +301,102 @@ class _FootwearPageState extends State<FootwearPage> {
                         );
                       }).toList(),
                       SizedBox(height: 5),
+                      Row(
+                        children: [
+                          ElevatedButton(
+                              onPressed: () => _pickImages(colorIndex),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0x3ffffcb24),
+                                  foregroundColor: Colors.black),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/images/image.png',
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text('Pick images for ${color['color']}'),
+                                ],
+                              )),
+                          SizedBox(width: 15),
+                          SizedBox(height: 10),
+                          // Display the selected images for this color
+                          _colors[colorIndex]['images'].isNotEmpty
+                              ? Wrap(
+                            spacing: 8.0,
+                            children: _colors[colorIndex]['images']
+                                .map<Widget>((file) => Image.file(file,
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.cover))
+                                .toList(),
+                          )
+                              : Container(),
+                          SizedBox(height: 10),
+                          // Display the selected videos for this color
+                          _colors[colorIndex]['videos'].isNotEmpty
+                              ? Wrap(
+                            spacing: 8.0,
+                            children: _colors[colorIndex]['videos']
+                                .map<Widget>((file) {
+                              return GestureDetector(
+                                onTap: () {
+                                  // You can add logic to play video here or navigate to a new screen to play the video
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          VideoPlayerScreen(
+                                              videoFile: file),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  width: 100,
+                                  height: 100,
+                                  color: Colors.grey[300],
+                                  child: Icon(Icons.play_arrow,
+                                      size: 50, color: Colors.white),
+                                ),
+                              );
+                            }).toList(),
+                          )
+                              : Container(),
+                          SizedBox(height: 16),
+                          ElevatedButton(
+                            onPressed: () => _pickVideos(colorIndex),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(
+                                  0x3ffffcb24,
+                                ),
+                                foregroundColor: Colors.black),
+                            /*style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12)),*/
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/upload.png',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                SizedBox(height: 8),
+                                Text('Pick videos for ${color['color']}'),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: () => _addSize(colorIndex),
                         child: Text('Add Size'),
                       ),
-                      Row(
-                        children: [
-                          ElevatedButton(
-                            onPressed: () => _pickImages(colorIndex),
-                            child: Text('Pick Images'),
-                          ),
-                          SizedBox(width: 10),
-                          ElevatedButton(
-                            onPressed: () => _pickVideos(colorIndex),
-                            child: Text('Pick Videos'),
-                          ),
-                        ],
-                      ),
                     ],
                   );
                 }).toList(),
+                SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: _addColor,
                   child: Text('Add Color'),
